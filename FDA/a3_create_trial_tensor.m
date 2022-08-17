@@ -53,8 +53,14 @@ sqrt_trial_tensor_3rd = sqrt_trial_tensor(:,:,(2*s+1):3*s);
 
 
 % save tensor in .mat file
-save(append(mat_path,'uni_trial_tensor'),'uni_trial_tensor_1st','uni_trial_tensor_2nd','uni_trial_tensor_3rd')
-save(append(mat_path,'sqrt_trial_tensor'),'sqrt_trial_tensor_1st','sqrt_trial_tensor_2nd','sqrt_trial_tensor_3rd')
+save(append(mat_path,'uni_trial_tensor_1st'),'uni_trial_tensor_1st')
+save(append(mat_path,'uni_trial_tensor_2nd'),'uni_trial_tensor_2nd')
+save(append(mat_path,'uni_trial_tensor_3rd'),'uni_trial_tensor_3rd')
+
+
+save(append(mat_path,'sqrt_trial_tensor_1st'),'sqrt_trial_tensor_1st')
+save(append(mat_path,'sqrt_trial_tensor_2nd'),'sqrt_trial_tensor_2nd')
+save(append(mat_path,'sqrt_trial_tensor_3rd'),'sqrt_trial_tensor_3rd')
 
 save(append(mat_path,'uni_trial_tensor_params'),'grid_x','grid_y','x_axis', 'y_axis')
 save(append(mat_path,'bw_vect_ksdensity'),'bw_vect_ksdensity')

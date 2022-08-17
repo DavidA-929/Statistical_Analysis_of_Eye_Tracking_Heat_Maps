@@ -13,7 +13,10 @@ load(append(mat_path, "uni_trial_tensor_params"))
 
 load(append(mat_path,'X_Kar_mean'))
 % load trial tensor
-load(append(mat_path,'sqrt_trial_tensor'))
+load(append(mat_path,'sqrt_trial_tensor_1st'))
+load(append(mat_path,'sqrt_trial_tensor_2nd'))
+load(append(mat_path,'sqrt_trial_tensor_3rd'))
+
 sqrt_trial_tensor = cat(3, sqrt_trial_tensor_1st, sqrt_trial_tensor_2nd, sqrt_trial_tensor_3rd);
 clear sqrt_trial_tensor_1st sqrt_trial_tensor_2nd sqrt_trial_tensor_3rd
 

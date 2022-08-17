@@ -11,8 +11,12 @@ load(append(mat_path, "participants"))
 load(append(mat_path, "unique_trials"))
 load(append(mat_path, "uni_stim"))
 load(append(mat_path,'uni_trial_tensor_params'))
-load(append(mat_path,'sqrt_trial_tensor'))
-load(append(mat_path,'uni_trial_tensor'))
+load(append(mat_path,'sqrt_trial_tensor_1st'))
+load(append(mat_path,'sqrt_trial_tensor_2nd'))
+load(append(mat_path,'sqrt_trial_tensor_3rd'))
+load(append(mat_path,'uni_trial_tensor_1st'))
+load(append(mat_path,'uni_trial_tensor_2nd'))
+load(append(mat_path,'uni_trial_tensor_3rd'))
 
 
 

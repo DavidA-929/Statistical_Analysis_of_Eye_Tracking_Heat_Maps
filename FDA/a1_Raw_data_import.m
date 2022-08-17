@@ -1,51 +1,12 @@
 clear;
 [wp_dir, char_split] = set_MainFolder_directory('Statistical_Analysis_of_Eye_Tracking_Heat_Maps');
 
-%% Import data from text file
-
-%% Setup the Import Options and import the data
-opts = delimitedTextImportOptions("NumVariables", 15);
-
-% Specify range and delimiter
-opts.DataLines = [2, Inf];
-opts.Delimiter = "\t";
-
-% Specify column names and types
-opts.VariableNames = ["RecordingTimems", "TimeofDayhmsms", "Trial", "Stimulus", "ExportStartTrialTimems", "ExportEndTrialTimems", "Participant", "Color", "PupilDiameterRightmm", "PointofRegardRightXpx", "PointofRegardRightYpx", "AOINameRight", "GazeVectorRightX", "GazeVectorRightY", "GazeVectorRightZ"];
-opts.VariableTypes = ["double", "string", "string", "string", "double", "double", "string", "string", "double", "double", "double", "string", "double", "double", "double"];
-
-% Specify file level properties
-opts.ExtraColumnsRule = "ignore";
-opts.EmptyLineRule = "read";
-
-% Specify variable properties
-opts = setvaropts(opts, ["TimeofDayhmsms", "Trial", "Stimulus", "Color", "AOINameRight"], "WhitespaceRule", "preserve");
-opts = setvaropts(opts, ["TimeofDayhmsms", "Trial", "Stimulus", "Color", "AOINameRight"], "EmptyFieldRule", "auto");
-
 % Import the data
-raw_data_folder = join([wp_dir, "Data Files","Eye-Tracking-Data", "Raw Data_1-20-2020.txt"], char_split);
-
-RawData = readtable(raw_data_folder, opts);
-
-
-% remove participants with low number of observations or high proportion of
-% zero eye coordinates
-RawData(RawData.Participant == "153",:) = [];
-RawData(RawData.Participant == "158",:) = [];
-RawData(RawData.Participant == "164",:) = [];
-RawData(RawData.Participant == "168",:) = [];
-RawData(RawData.Participant == "193",:) = [];
-RawData(RawData.Participant == "200_e",:) = [];
-
-
-%% Clear temporary variables
-clear opts
-%%
-% .mat files folder
 mat_path = append(join([wp_dir, "Data Files", "mat Files"], char_split), char_split);
 
 % save new raw data
-save(append(mat_path, "RawData"), 'RawData')
+load(append(mat_path, "RawData"))
+
 %% add unique trials to Raw Data and remove images with no labels
 
 RawData2 = RawData;
